@@ -2,15 +2,13 @@
 
 This repository hosts the canonical rules and skills every Universal Agent must follow so that behavior stays consistent across runtimes. By mirroring the contents of `.agents/` and `AGENTS.md`, any agent can reboot into a known-good configuration and collaborate with peers safely.
 
-## Repository layout
+## Reference layout
 
 | Path             | Purpose                                                                                                           |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------- |
 | `AGENTS.md`      | Control manifest describing the execution protocol, how to load skills/rules, and the required response contract. |
 | `.agents/skills` | On-demand skills (currently `code-review`) that declare trigger conditions plus output format.                    |
 | `.agents/rules`  | Long-lived guidelines for APIs, React components, and Git commits.                                                |
-| `src/`           | Example code (e.g., `components/Counter/`) useful for testing agent-driven UI flows.                              |
-| `public/`        | Shared assets such as logos and diagrams.                                                                         |
 
 ## Execution protocol
 
@@ -27,9 +25,9 @@ This repository hosts the canonical rules and skills every Universal Agent must 
 
 ## Visual references
 
-| Asset | Preview |
-| --- | --- |
-| Codex diagram | ![Codex diagram](public/codex.png) |
+| Asset            | Preview                                     |
+| ---------------- | ------------------------------------------- |
+| Codex diagram    | ![Codex diagram](public/codex.png)          |
 | Claude code view | ![Claude code view](public/claude-code.png) |
 
 Following this structure ensures every Universal Agent bootstraps with the same knowledge base, yielding predictable, rule-compliant collaboration.
