@@ -5,9 +5,9 @@ Apply this rule whenever you design, refactor, or review React components so tha
 ## Component style
 
 1. **Single responsibility**: each component owns one interaction or layout concern; compose smaller primitives instead of building monoliths.
-2. **Props typing**: define props with TypeScript interfaces or `type` aliases, provide sensible defaults via `defaultProps` or parameter defaults, and avoid `any`.
+2. **Props typing**: define props with TypeScript interfaces or `type` aliases, provide sensible defaults via parameter/destructuring defaults (no `defaultProps`), and avoid `any`.
 3. **Events and callbacks**: expose callback props with descriptive names (`onSubmit`, `onClose`) and document when they fire.
-4. **Styling**: prefer CSS Modules, styled-components, or scoped utility classes; never leak global styles without justification.
+4. **Styling**: prefer styled-components; never leak global styles without justification.
 5. **Testability**: push complex logic into hooks or pure utilities so the component render remains predictable and easy to unit test.
 
 ## File structure suggestion
