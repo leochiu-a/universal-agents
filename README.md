@@ -25,9 +25,9 @@ This repository hosts the canonical rules and skills every Universal Agent must 
 
 ## Visual references
 
-| Asset            | Preview                                     |
-| ---------------- | ------------------------------------------- |
-| Codex diagram    | ![Codex diagram](public/codex.png)          |
-| Claude code view | ![Claude code view](public/claude-code.png) |
+| Asset       | Preview                                     |
+| ----------- | ------------------------------------------- |
+| Codex       | ![Codex diagram](public/codex.png)          |
+| Claude code | ![Claude code view](public/claude-code.png) |
 
 Following this structure ensures every Universal Agent bootstraps with the same knowledge base, yielding predictable, rule-compliant collaboration.
