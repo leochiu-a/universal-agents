@@ -7,8 +7,8 @@ This repository hosts the canonical rules and skills every Universal Agent must 
 | Path             | Purpose                                                                                                           |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------- |
 | `AGENTS.md`      | Control manifest describing the execution protocol, how to load skills/rules, and the required response contract. |
-| `.agents/skills` | On-demand skills (currently `code-review`) that declare trigger conditions plus output format.                    |
-| `.agents/rules`  | Long-lived guidelines for APIs, React components, and Git commits.                                                |
+| `.agents/skills` | Like functions — they let the AI agent execute specific actions.                                                  |
+| `.agents/rules`  | Like conventions — they inform the AI agent about the guidelines of the codebase.                                 |
 
 ## Execution protocol
 
@@ -16,12 +16,6 @@ This repository hosts the canonical rules and skills every Universal Agent must 
 2. **Load skills on demand**: read `skills/*/SKILL.md` only when its trigger matches the task, then follow the prescribed workflow and output format.
 3. **Enforce rules whenever relevant**: if a task touches REST APIs, React components, or Git commits, preload the corresponding `.agents/rules/*.md` file and ensure all advice respects it.
 4. **Declare context in responses**: every reply must list which skills and rules were activated so users know which guardrails were applied.
-
-## Extending the rulebook
-
-1. **Add a skill**: create `.agents/skills/<skill-name>/SKILL.md` with trigger conditions, step-by-step execution, and output format.
-2. **Add a rule**: place domain guidance inside `.agents/rules/<rule>.md`, clearly outlining scope and constraints so future tasks can preload it.
-3. **Validate changes**: pair new artifacts with sample conversations or automated checks to prove agents load them correctly.
 
 ## Visual references
 
