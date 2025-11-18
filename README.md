@@ -25,6 +25,24 @@ This repository hosts the canonical rules and skills every Universal Agent must 
 
 Following this structure ensures every Universal Agent bootstraps with the same knowledge base, yielding predictable, rule-compliant collaboration.
 
+## Monorepo structure
+
+This repository now tracks code as a monorepo so we can grow multiple tools side by side. Workspaces live inside `packages/`.
+
+| Workspace            | Description                                                                     |
+| -------------------- | ------------------------------------------------------------------------------- |
+| `@universal-agents/cli` | Node.js CLI that can `init` a project by copying the canonical `AGENTS.md`. |
+
+### Getting started
+
+```bash
+pnpm install                                                  # installs workspace dependencies
+pnpm --filter @universal-agents/cli run build                 # compiles the CLI via tsdown
+pnpm run cli -- init ./my-new-project                         # runs the CLI to scaffold a new project
+```
+
+The CLI reuses the root `AGENTS.md` as a template, ensuring new projects inherit the same execution protocol out of the box.
+
 ## Rules vs. skills in plain language
 
 | Aspect           | Rules (Cursor-style)                                                               | Skills (Claude-style)                                                                                            |
