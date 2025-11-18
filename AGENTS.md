@@ -32,3 +32,14 @@ AGENTS.md
 
 - Additional skills (architecture review, test planning, etc.) or rules (team code style, compliance requirements) can be added under the existing folders.
 - Keep `AGENTS.md` updated so future agents know when to load each artifact and how to combine them safely.
+
+## Rules vs. skills at a glance
+
+| Aspect           | Rules (Cursor-style)                              | Skills (Claude-style)                                                      |
+| ---------------- | ------------------------------------------------- | -------------------------------------------------------------------------- |
+| Purpose          | Concise written instructions covering a domain.   | Full toolkits: guidance plus reusable templates and verified workflows.    |
+| Execution effort | Agent interprets and implements from scratch.     | Drop-in code, docs, and checklists shorten build time.                     |
+| Complexity focus | Describes guardrails; depends on agent expertise. | Encodes battle-tested patterns for tricky or specialized scenarios.        |
+| Maintenance      | Update the prose rule as policies evolve.         | Refresh the whole package (docs + sample code) when better solutions ship. |
+
+Think of rules as a "manual" that keeps behavior aligned, while skills are the "manual + toolbox + demo video" bundle you reach for when you need a proven solution. For example, a Cursor-style rule might say “when building Word docs, use `python-docx`, add a title, and ensure formatting is correct,” whereas the matching Claude-style skill would ship the full `python-docx` implementation, vetted templates, and boundary-handling tips pulled from `/mnt/skills/public/docx/SKILL.md`.
