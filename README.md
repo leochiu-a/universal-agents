@@ -38,3 +38,15 @@ In short:
 
 - Rules are the “manual”
 - Skills are the “manual + toolbox + show-and-tell” kit you reach for when the task demands more than guidelines.
+
+## CLI
+
+```bash
+pnpm install --global @universal-agents/cli
+```
+
+### CLI commands
+
+| Command / alias | Description                                                                      |
+| --------------- | -------------------------------------------------------------------------------- |
+| `ua init`       | Copies the repository’s `AGENTS.md` template into the current working directory. |

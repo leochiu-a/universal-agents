@@ -1,0 +1,43 @@
+{
+  "name": "@universal-agents/cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "universal-agents": "dist/index.mjs",
+    "ua": "dist/index.mjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "cli": "node dist/index.mjs",
+    "prepublishOnly": "pnpm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "description": "Universal Agents CLI utilities",
+  "author": "",
+  "license": "MIT",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "dependencies": {
+    "commander": "^12.1.0"
+  },
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "bumpp": "^10.3.1",
+    "tsdown": "^0.16.5",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.9"
+  }
+}
