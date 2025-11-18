@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseInitOptions } from "./cli";
+import { parseInitOptions } from "./init";
 
 describe("parseInitOptions", () => {
   it("returns defaults when no args provided", () => {
