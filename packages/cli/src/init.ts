@@ -7,54 +7,27 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const TEMPLATE_PATH = path.resolve(__dirname, "../../../AGENTS.md");
 
-export interface InitOptions {
-  dir: string;
-  force: boolean;
-}
-
-export async function init(args: string[]): Promise<void> {
-  const options = parseInitOptions(args);
+/**
+ * Creates AGENTS.md from the repo template in the current working directory.
+ */
+export async function init(): Promise<void> {
   const template = await readTemplate();
-  const targetDir = path.resolve(process.cwd(), options.dir);
+  const targetDir = process.cwd();
   const targetFile = path.join(targetDir, "AGENTS.md");
 
   await mkdir(targetDir, { recursive: true });
 
-  if (!options.force && (await fileExists(targetFile))) {
-    throw new Error(
-      `AGENTS.md already exists at ${targetFile}. Use --force to overwrite.`
-    );
+  if (await fileExists(targetFile)) {
+    throw new Error(`AGENTS.md already exists at ${targetFile}.`);
   }
 
   await writeFile(targetFile, template, "utf8");
   console.log(`AGENTS.md created at ${targetFile}`);
 }
 
-export function parseInitOptions(argv: string[]): InitOptions {
-  const options: InitOptions = { dir: ".", force: false };
-
-  for (let i = 0; i < argv.length; i += 1) {
-    const value = argv[i];
-
-    if (value === "--dir" || value === "-d") {
-      const nextValue = argv[i + 1];
-      if (!nextValue || nextValue.startsWith("-")) {
-        throw new Error("Missing value for --dir option");
-      }
-      options.dir = nextValue;
-      i += 1;
-    } else if (value === "--force" || value === "-f") {
-      options.force = true;
-    } else if (!value.startsWith("-")) {
-      options.dir = value;
-    } else {
-      throw new Error(`Unknown option: ${value}`);
-    }
-  }
-
-  return options;
-}
-
+/**
+ * Reads the root template once so the CLI shares a single source of truth.
+ */
 async function readTemplate(): Promise<string> {
   if (!(await fileExists(TEMPLATE_PATH))) {
     throw new Error(`Template not found at ${TEMPLATE_PATH}`);

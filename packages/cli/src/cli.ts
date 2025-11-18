@@ -1,36 +1,30 @@
+import { Command } from "commander";
 import { init } from "./init.js";
 
-type CommandHandler = (args: string[]) => Promise<void> | void;
+export async function runCli(argv = process.argv): Promise<void> {
+  const program = new Command();
 
-const commands: Record<string, CommandHandler> = {
-  init,
-  help,
-};
+  program
+    .name("universal-agents")
+    .description("Universal Agents CLI utilities")
+    .showSuggestionAfterError()
+    .showHelpAfterError("(add --help for usage information)");
 
-export async function runCli(argv = process.argv.slice(2)): Promise<void> {
-  if (argv.includes("--help") || argv.includes("-h")) {
-    showHelp();
-    return;
-  }
+  program
+    .command("init")
+    .description("Create an AGENTS.md file from the root template")
+    .action(async () => {
+      await init();
+    });
 
-  const [command = "help", ...rest] = argv;
-  const handler = commands[command] ?? help;
+  program
+    .command("help", { isDefault: true })
+    .description("Display help information")
+    .action(() => {
+      program.outputHelp();
+    });
 
-  try {
-    await handler(rest);
-  } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
-    console.error(`[universal-agents] ${message}`);
-    process.exitCode = 1;
-  }
-}
-
-async function help(): Promise<void> {
-  showHelp();
-}
-
-function showHelp(): void {
-  console.log(
-    `Universal Agents CLI\n\nUsage:\n  universal-agents init [path] [options]\n\nOptions:\n  -d, --dir <path>    Target directory (defaults to current working directory)\n  -f, --force         Overwrite AGENTS.md if it already exists\n  --help              Show this message\n`
-  );
+  const parseOptions =
+    argv === process.argv ? { from: "node" as const } : { from: "user" as const };
+  await program.parseAsync(argv, parseOptions);
 }
