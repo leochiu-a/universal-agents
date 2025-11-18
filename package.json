@@ -7,6 +7,12 @@
     "test": "pnpm -r run test",
     "lint": "pnpm -r run lint",
     "cli": "pnpm --filter @universal-agents/cli run cli",
-    "dev:cli": "pnpm --filter @universal-agents/cli run dev"
+    "dev:cli": "pnpm --filter @universal-agents/cli run dev",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "pnpm run build && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.5"
   }
 }
