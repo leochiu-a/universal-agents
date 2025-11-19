@@ -42,7 +42,7 @@ In short:
 ## CLI
 
 ```bash
-pnpm install --global @universal-agents/cli
+pnpm install --global universal-agents
 ```
 
 ### CLI commands

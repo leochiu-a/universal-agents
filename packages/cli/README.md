@@ -1,4 +1,4 @@
-# @universal-agents/cli
+# universal-agents
 
 A lightweight CLI that bootstraps Universal Agents projects. The `init` command copies the repository's `AGENTS.md` manifest into any target directory so new projects inherit the same control manifest, while the `create` commands scaffold empty rule/skill stubs under `.agents/`.
 
@@ -8,14 +8,14 @@ Install dependencies from the monorepo root and run the CLI through the workspac
 
 ```bash
 pnpm install
-pnpm --filter @universal-agents/cli run build
+pnpm --filter universal-agents run build
 cd my-project && pnpm run cli -- init
 ```
 
 Or execute the binary directly from the package once it has been built:
 
 ```bash
-pnpm --filter @universal-agents/cli exec universal-agents init
+pnpm --filter universal-agents exec universal-agents init
 ```
 
 ### Commands
@@ -31,7 +31,7 @@ Both `create` subcommands rely on [`@inquirer/prompts`](https://github.com/SBoud
 The CLI source lives in `src/` and is bundled with [tsdown](https://github.com/egoist/tsdown). Use the watch command for a quick edit/test loop:
 
 ```bash
-pnpm --filter @universal-agents/cli run dev
+pnpm --filter universal-agents run dev
 ```
 
-Extend it by adding new commands inside `src/index.ts` (or additional modules) and regenerate the output via `pnpm --filter @universal-agents/cli run build`. The generated `dist/index.mjs` now includes the `#!/usr/bin/env node` shebang, so it doubles as the published binary entry point.
+Extend it by adding new commands inside `src/index.ts` (or additional modules) and regenerate the output via `pnpm --filter universal-agents run build`. The generated `dist/index.mjs` now includes the `#!/usr/bin/env node` shebang, so it doubles as the published binary entry point.

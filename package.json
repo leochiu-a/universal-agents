@@ -5,8 +5,7 @@
     "build": "pnpm -r run build",
     "test": "pnpm -r run test",
     "lint": "pnpm -r run lint",
-    "cli": "pnpm --filter @universal-agents/cli run cli",
-    "dev:cli": "pnpm --filter @universal-agents/cli run dev",
+    "dev:cli": "pnpm --filter universal-agents run dev",
     "changeset": "changeset",
     "version": "changeset version",
     "release": "pnpm run build && changeset publish"

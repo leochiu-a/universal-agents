@@ -1,4 +1,4 @@
-# @universal-agents/cli
+# universal-agents
 
 ## 0.2.0
 
