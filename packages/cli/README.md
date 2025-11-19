@@ -1,6 +1,6 @@
 # @universal-agents/cli
 
-A lightweight CLI that bootstraps Universal Agents projects. The initial `init` command copies the repository's `AGENTS.md` manifest into any target directory so new projects inherit the same control manifest.
+A lightweight CLI that bootstraps Universal Agents projects. The `init` command copies the repository's `AGENTS.md` manifest into any target directory so new projects inherit the same control manifest, while the `create` commands scaffold empty rule/skill stubs under `.agents/`.
 
 ## Usage
 
@@ -9,23 +9,22 @@ Install dependencies from the monorepo root and run the CLI through the workspac
 ```bash
 pnpm install
 pnpm --filter @universal-agents/cli run build
-pnpm run cli -- init
+cd my-project && pnpm run cli -- init
 ```
 
 Or execute the binary directly from the package once it has been built:
 
 ```bash
-pnpm --filter @universal-agents/cli exec universal-agents init ./my-project
+pnpm --filter @universal-agents/cli exec universal-agents init
 ```
 
 ### Commands
 
-- `init [path]`: copies the root `AGENTS.md` template into `[path]` (defaults to the current directory).
+- `init`: copies the root `AGENTS.md` template into the current working directory.
+- `create skill`: asks for a skill name, slugifies it, and creates `.agents/skills/<slug>/SKILL.md`.
+- `create rule`: asks for a rule name and creates `.agents/rules/<slug>.md`.
 
-#### Options
-
-- `-d, --dir <path>`: explicit destination directory.
-- `-f, --force`: overwrite an existing `AGENTS.md`.
+Both `create` subcommands rely on [`@inquirer/prompts`](https://github.com/SBoudrias/Inquirer.js/tree/main/packages/prompts) so contributors can scaffold metadata without remembering the exact directory layout. Cancel at any time with `ctrl+c`.
 
 ## Development
 

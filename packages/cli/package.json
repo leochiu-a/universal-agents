@@ -27,6 +27,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "dependencies": {
+    "@inquirer/prompts": "^7.3.1",
     "commander": "^12.1.0"
   },
   "exports": {
