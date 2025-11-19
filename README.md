@@ -47,6 +47,8 @@ pnpm install --global @universal-agents/cli
 
 ### CLI commands
 
-| Command / alias | Description                                                                      |
-| --------------- | -------------------------------------------------------------------------------- |
-| `ua init`       | Copies the repository’s `AGENTS.md` template into the current working directory. |
+| Command / alias   | Description                                                                      |
+| ----------------- | -------------------------------------------------------------------------------- |
+| `ua init`         | Copies the repository’s `AGENTS.md` template into the current working directory. |
+| `ua create skill` | Prompts for a skill name and creates `.agents/skills/<name>/SKILL.md`.           |
+| `ua create rule`  | Prompts for a rule name and creates `.agents/rules/<name>.md`.                   |
