@@ -1,5 +1,5 @@
 {
-  "name": "@universal-agents/cli",
+  "name": "universal-agents",
   "version": "0.2.0",
   "type": "module",
   "bin": {
