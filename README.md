@@ -2,6 +2,16 @@
 
 This repository hosts the canonical rules and skills every Universal Agent must follow so that behavior stays consistent across runtimes. By mirroring the contents of `.agents/` and `AGENTS.md`, any agent can reboot into a known-good configuration and collaborate with peers safely.
 
+## Why Universal Agents?
+
+Different AI coding assistants use different conventions to organize their configuration files. For example:
+- Claude Code stores skills in `.claude/skills/<skill-name>/SKILL.md`
+- Cursor stores rules in the `.cursor/rules/` folder
+
+This fragmentation means agents cannot easily share or reuse configurations from one another.
+
+Universal Agents solves this by providing a unified structure for organizing rules and skills that works across all AI coding assistants.
+
 ## Reference layout
 
 | Path             | Purpose                                                                                                           |
