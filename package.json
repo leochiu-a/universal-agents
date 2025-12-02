@@ -2,7 +2,7 @@
   "name": "universal-agents",
   "packageManager": "pnpm@10.18.1",
   "scripts": {
-    "build": "pnpm -r run build",
+    "build": "pnpm --filter universal-agents run build",
     "test": "pnpm -r run test",
     "lint": "pnpm -r run lint",
     "dev:cli": "pnpm --filter universal-agents run dev",
