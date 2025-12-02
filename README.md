@@ -5,6 +5,7 @@ This repository hosts the canonical rules and skills every Universal Agent must 
 ## Why Universal Agents?
 
 Different AI coding assistants use different conventions to organize their configuration files. For example:
+
 - Claude Code stores skills in `.claude/skills/<skill-name>/SKILL.md`
 - Cursor stores rules in the `.cursor/rules/` folder
 
@@ -62,3 +63,11 @@ pnpm install --global universal-agents
 | `ua init`         | Copies the repository’s `AGENTS.md` template into the current working directory. |
 | `ua create skill` | Prompts for a skill name and creates `.agents/skills/<name>/SKILL.md`.           |
 | `ua create rule`  | Prompts for a rule name and creates `.agents/rules/<name>.md`.                   |
+
+## Apply Universal Agents in Claude Code
+
+Claude Code sometimes ignores its `CLAUDE.md` file and doesn't support `AGENTS.md` protocol. We can still use a user memory prompt to force loading:
+
+```
+ALWAYS read AGENTS.md file first
+```
