@@ -6,17 +6,14 @@ const CodePreview: React.FC = () => {
   const [copied, setCopied] = useState(false);
 
   const codeSnippets = {
-    cli: `# Install the CLI globally
-pnpm install --global universal-agents
-
-# Initialize universal agents in your project
-ua init
+    cli: `# Run via npx (no global install needed)
+npx universal-agents init
 
 # Create a new skill (e.g. for database access)
-ua create skill
+npx universal-agents create skill
 
 # Create a new rule (e.g. for coding standards)
-ua create rule`,
+npx universal-agents create rule`,
     structure: `project-root/
 ├── AGENTS.md            # Control manifest & execution protocol
 └── .agents/

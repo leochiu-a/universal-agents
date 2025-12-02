@@ -52,17 +52,15 @@ In short:
 
 ## CLI
 
-```bash
-pnpm install --global universal-agents
-```
+Use `npx universal-agents` (no global install required).
 
 ### CLI commands
 
-| Command / alias   | Description                                                                      |
-| ----------------- | -------------------------------------------------------------------------------- |
-| `ua init`         | Copies the repository’s `AGENTS.md` template into the current working directory. |
-| `ua create skill` | Prompts for a skill name and creates `.agents/skills/<name>/SKILL.md`.           |
-| `ua create rule`  | Prompts for a rule name and creates `.agents/rules/<name>.md`.                   |
+| Command                            | Description                                                                      |
+| ---------------------------------- | -------------------------------------------------------------------------------- |
+| `npx universal-agents init`        | Copies the repository’s `AGENTS.md` template into the current working directory. |
+| `npx universal-agents create skill`| Prompts for a skill name and creates `.agents/skills/<name>/SKILL.md`.           |
+| `npx universal-agents create rule` | Prompts for a rule name and creates `.agents/rules/<name>.md`.                   |
 
 ## Apply Universal Agents in Claude Code
 
