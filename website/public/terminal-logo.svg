@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+  <defs>
+    <linearGradient id="terminalLogoGradient" x1="10" y1="36" x2="32" y2="8" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#66FCF1"/>
+      <stop offset="1" stop-color="#45a29e"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="36" height="36" rx="10" fill="url(#terminalLogoGradient)"/>
+  <path d="M18 27h10" stroke="#0B0C10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m10 24 7-7-7-7" stroke="#0B0C10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
