@@ -1,6 +1,6 @@
 {
   "name": "universal-agents",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "type": "module",
   "bin": {
     "universal-agents": "dist/index.mjs",
