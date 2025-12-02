@@ -5,7 +5,11 @@ import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const TEMPLATE_PATH = path.resolve(__dirname, "../../../AGENTS.md");
+
+// When published, AGENTS.md ships next to the compiled files.
+const PACKAGE_TEMPLATE_PATH = path.resolve(__dirname, "../AGENTS.md");
+// During local development, fall back to the repo root file.
+const REPO_TEMPLATE_PATH = path.resolve(__dirname, "../../../AGENTS.md");
 
 /**
  * Creates AGENTS.md from the repo template in the current working directory.
@@ -29,10 +33,15 @@ export async function init(): Promise<void> {
  * Reads the root template once so the CLI shares a single source of truth.
  */
 async function readTemplate(): Promise<string> {
-  if (!(await fileExists(TEMPLATE_PATH))) {
-    throw new Error(`Template not found at ${TEMPLATE_PATH}`);
+  const candidates = [PACKAGE_TEMPLATE_PATH, REPO_TEMPLATE_PATH];
+
+  for (const filePath of candidates) {
+    if (await fileExists(filePath)) {
+      return readFile(filePath, "utf8");
+    }
   }
-  return readFile(TEMPLATE_PATH, "utf8");
+
+  throw new Error(`Template not found. Checked: ${candidates.join(", ")}`);
 }
 
 async function fileExists(filePath: string): Promise<boolean> {

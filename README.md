@@ -2,6 +2,18 @@
 
 This repository hosts the canonical rules and skills every Universal Agent must follow so that behavior stays consistent across runtimes. By mirroring the contents of `.agents/` and `AGENTS.md`, any agent can reboot into a known-good configuration and collaborate with peers safely.
 
+## CLI
+
+Use `npx universal-agents` (no global install required).
+
+### CLI commands
+
+| Command                             | Description                                                                      |
+| ----------------------------------- | -------------------------------------------------------------------------------- |
+| `npx universal-agents init`         | Copies the repository’s `AGENTS.md` template into the current working directory. |
+| `npx universal-agents create skill` | Prompts for a skill name and creates `.agents/skills/<name>/SKILL.md`.           |
+| `npx universal-agents create rule`  | Prompts for a rule name and creates `.agents/rules/<name>.md`.                   |
+
 ## Why Universal Agents?
 
 Different AI coding assistants use different conventions to organize their configuration files. For example:
@@ -50,24 +62,12 @@ In short:
 - Rules are the “manual”
 - Skills are the “manual + toolbox + show-and-tell” kit you reach for when the task demands more than guidelines.
 
-## CLI
-
-```bash
-pnpm install --global universal-agents
-```
-
-### CLI commands
-
-| Command / alias   | Description                                                                      |
-| ----------------- | -------------------------------------------------------------------------------- |
-| `ua init`         | Copies the repository’s `AGENTS.md` template into the current working directory. |
-| `ua create skill` | Prompts for a skill name and creates `.agents/skills/<name>/SKILL.md`.           |
-| `ua create rule`  | Prompts for a rule name and creates `.agents/rules/<name>.md`.                   |
-
 ## Apply Universal Agents in Claude Code
 
-Claude Code sometimes ignores its `CLAUDE.md` file and doesn't support `AGENTS.md` protocol. We can still use a user memory prompt to force loading:
+Claude Code sometimes ignores its `CLAUDE.md` file and doesn't support the `AGENTS.md` protocol. Use a user memory prompt to force loading:
 
 ```
 ALWAYS read AGENTS.md file first
 ```
+
+In Claude, pin this via the `/memory` command so it stays in user memory.
