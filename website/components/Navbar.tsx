@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Github } from "lucide-react";
 import Button from "./ui/Button";
-
-import terminalLogo from "../assets/terminal-logo.svg";
+import terminalLogo from "@/assets/terminal-logo.svg";
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
