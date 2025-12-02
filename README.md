@@ -56,16 +56,18 @@ Use `npx universal-agents` (no global install required).
 
 ### CLI commands
 
-| Command                            | Description                                                                      |
-| ---------------------------------- | -------------------------------------------------------------------------------- |
-| `npx universal-agents init`        | Copies the repository’s `AGENTS.md` template into the current working directory. |
-| `npx universal-agents create skill`| Prompts for a skill name and creates `.agents/skills/<name>/SKILL.md`.           |
-| `npx universal-agents create rule` | Prompts for a rule name and creates `.agents/rules/<name>.md`.                   |
+| Command                             | Description                                                                      |
+| ----------------------------------- | -------------------------------------------------------------------------------- |
+| `npx universal-agents init`         | Copies the repository’s `AGENTS.md` template into the current working directory. |
+| `npx universal-agents create skill` | Prompts for a skill name and creates `.agents/skills/<name>/SKILL.md`.           |
+| `npx universal-agents create rule`  | Prompts for a rule name and creates `.agents/rules/<name>.md`.                   |
 
 ## Apply Universal Agents in Claude Code
 
-Claude Code sometimes ignores its `CLAUDE.md` file and doesn't support `AGENTS.md` protocol. We can still use a user memory prompt to force loading:
+Claude Code sometimes ignores its `CLAUDE.md` file and doesn't support the `AGENTS.md` protocol. Use a user memory prompt to force loading:
 
 ```
 ALWAYS read AGENTS.md file first
 ```
+
+In Claude, pin this via the `/memory` command so it stays in user memory.
