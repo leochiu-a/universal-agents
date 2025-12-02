@@ -1,5 +1,5 @@
 ---
-"universal-agents": major
+"universal-agents": minor
 ---
 
 BREAKING CHANGE: Replace global installation with npx execution
