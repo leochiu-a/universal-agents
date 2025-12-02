@@ -1,6 +1,6 @@
-import React from 'react';
-import { ArrowRight, Terminal, BookOpen } from 'lucide-react';
-import Button from './ui/Button';
+import React from "react";
+import { ArrowRight, Terminal, BookOpen } from "lucide-react";
+import Button from "./ui/Button";
 
 const Hero: React.FC = () => {
   return (
@@ -18,18 +18,24 @@ const Hero: React.FC = () => {
             <span className="flex h-2 w-2 rounded-full bg-[#66FCF1] mr-2 animate-pulse"></span>
             Standardize your AI behavior
           </div>
-          
+
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-8 leading-tight">
             The Missing Standard for <br />
-            <span className="text-gradient">AI Orchestration</span>
+            <span className="text-gradient">AI Agents</span>
           </h1>
-          
+
           <p className="mt-4 text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-            A unified structure for organizing rules and skills that works across Claude Code, Cursor, and every other AI coding assistant. One configuration, universal execution.
+            A unified structure for organizing rules and skills that works
+            across Claude Code, Cursor, and every other AI coding assistant. One
+            configuration, universal execution.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-             <a href="https://github.com/leochiu-a/universal-agents" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://github.com/leochiu-a/universal-agents"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button variant="primary" size="lg" icon={<Terminal size={20} />}>
                 Install CLI
               </Button>
@@ -44,11 +50,11 @@ const Hero: React.FC = () => {
               <div className="w-1 h-1 bg-gray-500 rounded-full"></div>
               <span>Protocol Standard</span>
             </div>
-             <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2">
               <div className="w-1 h-1 bg-gray-500 rounded-full"></div>
               <span>CLI Included</span>
             </div>
-             <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2">
               <div className="w-1 h-1 bg-gray-500 rounded-full"></div>
               <span>Runtime Agnostic</span>
             </div>
