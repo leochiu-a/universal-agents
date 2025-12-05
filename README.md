@@ -1,6 +1,6 @@
 # Universal Agents
 
-This repository hosts the canonical rules and skills every Universal Agent must follow so that behavior stays consistent across runtimes. By mirroring the contents of `.agents/` and `AGENTS.md`, any agent can reboot into a known-good configuration and collaborate with peers safely.
+A lightweight standard for sharing agent configurations across all AI coding assistants using a single `AGENTS.md` file.
 
 ## Quick Start
 
@@ -29,32 +29,41 @@ Different AI coding assistants use different conventions to organize their confi
 - Claude Code stores skills in `.claude/skills/<skill-name>/SKILL.md`
 - Cursor stores rules in the `.cursor/rules/` folder
 
-This fragmentation means agents cannot easily share or reuse configurations from one another.
+This fragmentation locks configurations into single platforms. Teams cannot share context and workflow definitions across tools.
 
-Universal Agents solves this by providing a unified structure for organizing rules and skills that works across all AI coding assistants.
+## The Solution
 
-## Reference layout
+Universal Agents provides the **lightest, simplest** shared standard: `AGENTS.md` + `.agents/` folder. Any agent—regardless of runtime—reads this one manifest to bootstrap rules and skills.
 
-| Path             | Purpose                                                                                                           |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `AGENTS.md`      | Control manifest describing the execution protocol, how to load skills/rules, and the required response contract. |
-| `.agents/skills` | Like functions — they let the AI agent execute specific actions.                                                  |
-| `.agents/rules`  | Like conventions — they inform the AI agent about the guidelines of the codebase.                                 |
+## How it works
+
+Universal Agents uses a single entry point—`AGENTS.md`—to describe which skills and rules apply to any task. All skills and rules live in `.agents/` for version control and easy sharing.
+
+| File/Folder       | Purpose                                                                                                       |
+| ----------------- | ------------------------------------------------------------------------------------------------------------- |
+| `AGENTS.md`       | Control manifest listing all available skills and rules, with trigger conditions and loading instructions.    |
+| `.agents/skills/` | Reusable task workflows (e.g., code review, testing) — each skill is self-contained and production-ready.     |
+| `.agents/rules/`  | Domain guidelines (e.g., API design, React conventions) — long-lived constraints that enforce team standards. |
+
+## Key advantages
+
+- **One source of truth**: `AGENTS.md` works across Claude Code, Cursor, Codex, and any future AI assistant.
+- **Zero boilerplate**: No tool-specific file structure. Just read `AGENTS.md`, follow its protocol.
+- **Minimal footprint**: Lightweight Markdown—no DSLs, config files, or complex tooling required.
+- **Immediate adoption**: Agents that understand the `AGENTS.md` protocol can bootstrap any project instantly.
 
 ## Execution protocol
 
-1. **Always read `AGENTS.md` first** to understand which skills or rules apply before starting a task.
-2. **Load skills on demand**: read `skills/*/SKILL.md` only when its trigger matches the task, then follow the prescribed workflow and output format.
-3. **Enforce rules whenever relevant**: if a task touches REST APIs, React components, or Git commits, preload the corresponding `.agents/rules/*.md` file and ensure all advice respects it.
-4. **Declare context in responses**: every reply must list which skills and rules were activated so users know which guardrails were applied.
+1. **Read `AGENTS.md` first** to discover available skills and rules, plus their trigger conditions.
+2. **Load skills on demand**: when a task matches a skill's trigger, read the skill file and follow its workflow.
+3. **Enforce rules whenever relevant**: if a task touches governed domains, preload and apply the matching rule file.
+4. **Declare applied guardrails**: list which skills and rules were active so transparency is guaranteed.
 
 ## Visual references
 
 | Asset   | Codex                              | Claude code                                 |
 | ------- | ---------------------------------- | ------------------------------------------- |
 | Preview | ![Codex diagram](public/codex.png) | ![Claude code view](public/claude-code.png) |
-
-Following this structure ensures every Universal Agent bootstraps with the same knowledge base, yielding predictable, rule-compliant collaboration.
 
 ## Rules vs. skills in plain language
 
@@ -67,8 +76,5 @@ Following this structure ensures every Universal Agent bootstraps with the same 
 
 In short:
 
-- Rules are the “manual”
-- Skills are the “manual + toolbox + show-and-tell” kit you reach for when the task demands more than guidelines.
-
-
-In Claude, pin this via the `/memory` command so it stays in user memory.
+- Rules are the "manual"
+- Skills are the "manual + toolbox + show-and-tell" kit you reach for when the task demands more than guidelines.
