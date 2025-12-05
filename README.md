@@ -70,12 +70,5 @@ In short:
 - Rules are the “manual”
 - Skills are the “manual + toolbox + show-and-tell” kit you reach for when the task demands more than guidelines.
 
-## Apply Universal Agents in Claude Code
-
-Claude Code sometimes ignores its `CLAUDE.md` file and doesn't support the `AGENTS.md` protocol. Use a user memory prompt to force loading:
-
-```
-ALWAYS read AGENTS.md file first
-```
 
 In Claude, pin this via the `/memory` command so it stays in user memory.
