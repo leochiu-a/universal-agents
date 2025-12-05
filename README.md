@@ -2,6 +2,8 @@
 
 A lightweight standard for sharing agent configurations across all AI coding assistants using a single `AGENTS.md` file.
 
+![](public/image.png)
+
 ## Quick Start
 
 Run the CLI via npx:
