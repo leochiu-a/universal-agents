@@ -4,18 +4,18 @@ import { Layout, BookOpen, Repeat } from 'lucide-react';
 const features = [
   {
     icon: <BookOpen size={24} />,
-    title: "Execution Protocol",
-    description: "A strict manifesto that tells agents exactly how to load skills, enforce rules, and declare context before starting a task."
+    title: "One Entry Point",
+    description: "Everything lives in AGENTS.md. No tool-specific formats, no complex tooling. Just Markdown."
   },
   {
     icon: <Layout size={24} />,
-    title: "Unified Structure",
-    description: "Forget fragmentation. Organize everything in .agents/ with a clear separation between passive Rules and executable Skills."
+    title: "Minimal Footprint",
+    description: ".agents/ folder + execution protocol. Zero boilerplate, zero DSLs. Share configs across any AI assistant."
   },
   {
     icon: <Repeat size={24} />,
-    title: "Cross-Runtime",
-    description: "Whether you use Cursor, Claude Code, or a custom LLM loop, Universal Agents provides a common language they all understand."
+    title: "Immediate Adoption",
+    description: "Agents that understand the AGENTS.md protocol bootstrap any project instantly. No setup friction."
   }
 ];
 
@@ -26,12 +26,12 @@ const Features: React.FC = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-base text-[#66FCF1] font-semibold tracking-wide uppercase">Why Use It?</h2>
+          <h2 className="text-base text-[#66FCF1] font-semibold tracking-wide uppercase">The Universal Approach</h2>
           <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
-            One Standard to Rule Them All
+            Lightest. Simplest. Most Portable.
           </p>
           <p className="mt-4 max-w-2xl text-xl text-gray-400 mx-auto">
-            Bring order to your AI workflow with a reference layout that scales.
+            Stop fragmenting agent configurations across tools. One AGENTS.md works everywhere.
           </p>
         </div>
 

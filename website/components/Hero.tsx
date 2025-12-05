@@ -20,14 +20,14 @@ const Hero: React.FC = () => {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-8 leading-tight">
-            The Missing Standard for <br />
+            The Lightest Shared Standard for <br />
             <span className="text-gradient">AI Agents</span>
           </h1>
 
           <p className="mt-4 text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-            A unified structure for organizing rules and skills that works
-            across Claude Code, Cursor, and every other AI coding assistant. One
-            configuration, universal execution.
+            One <code className="bg-[#1F2833] px-2 py-1 rounded text-[#66FCF1]">AGENTS.md</code> file.
+            Works across Claude Code, Cursor, and every AI coding assistant.
+            No fragmentation. No complex tooling.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
